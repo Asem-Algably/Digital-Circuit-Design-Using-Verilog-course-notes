@@ -3,7 +3,7 @@ register is just a term that describes a bunch of flip flops, they can store dat
 in this module we will go through the different ways you can design a register
 
 ### n bit register
-![[Pasted image 20260607184101.png]]
+![](attachment/c2e461c27dffa5f6aa7dca228eb3689c.png)
 
 ```verilog
 module simple_register
@@ -59,7 +59,7 @@ endmodule
 ```
 
 ### n bit register with load
-![[Pasted image 20260607184222.png]]
+![](attachment/68ac2363ba02a56cfbb8d74a29b020d6.png)
 
 our previous register had a huge flowback which is that it don’t hold on it’s data, it is always sampling D so we might want to control this process and add a load input that only once activated D get’s sampled
 ```verilog
@@ -92,7 +92,7 @@ endmodule
 ``` 
 
 ### shift registers
-![[Pasted image 20260607184247.png]]
+![](attachment/8b31501b664d29ec8f4b10084d058ac9.png)
 shift registers offer the functionality of shifting the bits to the right or left which is a useful operation in logic design since shifting to the right is equivalent to dividing by two and shifting to left is equivalent to  multiplying with two, and they are also used in communication protocols to cut down the number of wires 
 
 ```verilog
@@ -126,7 +126,7 @@ endmodule
 note how we used the concatenation syntax here which is similar to array concatenation in high level languages like JavaScript
 
 ### parallel Access shift register
-![[Pasted image 20260607185605.png]]
+![](attachment/896abb3f0501a79ff7574ca5f8083e22.png)
 
 as you can see the previous shift register is always shifting so let’s add more control to it and make it either can load values or shift them
 
@@ -169,7 +169,7 @@ endmodule
 ```
 
 ### universal shift register
-![[Pasted image 20260607185636.png]]
+![](attachment/1f443357bc324383d6ba12f58d193b40.png)
 no let’s complete our register and make it only shift or load once asked to
 
 ```verilog
@@ -212,4 +212,12 @@ endmodule
 ```
 
 if you got confused this table illustrates the shift register controls
-![[Pasted image 20260607185754.png]]
+![](attachment/8c9ee49d815c21a661eff1e2e4bed45d.png)
+
+>[!NOTE]
+>so in general the way to work with registers and flip flops in verilog is as follow:
+> - define local registers inside the module for the current state and the next and the current state (`Q_reg` and `Q_next`)
+> - use sequential logic and non blocking assignment to link between them and add any asynchronous features you want like asynchronous set and asynchronous reset
+> - use combinational logic for the input stage before the flip flop
+> - use combinational logic for the output stage after the flip flop
+
