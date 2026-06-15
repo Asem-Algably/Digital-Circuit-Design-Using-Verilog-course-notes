@@ -214,7 +214,7 @@ endmodule
 if you got confused this table illustrates the shift register controls
 ![](attachment/8c9ee49d815c21a661eff1e2e4bed45d.png)
 
->[!NOTE]
+>[!TIP]
 >so in general the way to work with registers and flip flops in verilog is as follow:
 > - define local registers inside the module for the current state and the next and the current state (`Q_reg` and `Q_next`)
 > - use sequential logic and non blocking assignment to link between them and add any asynchronous features you want like asynchronous set and asynchronous reset
